@@ -1,0 +1,140 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage{subfiles}
+
+% *** GRAPHICS RELATED PACKAGES ***
+\ifCLASSINFOpdf
+  \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Diseño e implementación de un brazo robótico con actividad reconfigurable por un usuario final sin intervención de personal calificado}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{
+  \IEEEauthorblockN{Oliver Paucar}
+  \IEEEauthorblockA{Universidad Nacional de Ingeniería\\
+    Lima, PERU\\
+    Email: oliwpaucar11@gmail.com}
+  \and
+  \IEEEauthorblockN{Gabriel García}
+  \IEEEauthorblockA{Universidad Nacional de Ingeniería\\
+    Lima, PERU\\
+    Email: gabrconatabl@gmail.com}
+  \and
+  \IEEEauthorblockN{Frank A. Moreno Vera}
+  \IEEEauthorblockA{Hack-Zeit Research\\
+    Lima, PERU\\
+    Email: frank.moreno@hackzeit.com}
+}
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+
+
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the conference you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals/conferences frown on
+% math in the abstract anyway.
+
+% no keywords
+
+\begin{abstract}
+%\boldmath
+The abstract goes here.
+\end{abstract}
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+\section{Introducción}
+
+\subfile{introduccion}
+
+\section{objetivos generales}
+
+\subfile{objetivos_generales}
+
+\section{análisis mecánico}
+
+\subfile{estructura_mecanica}
+
+\section{modos de operación}
+
+\subfile{modos_de_operacion}
+   
+%\section*{}
+La automatización y toma de datos se realiza a través de un brazo a
+escala, esto quiere decir que no habrá necesidad de interactuar con
+el brazo robótico.
+De la fig. ,en un principio,se encontrará al brazo en un estado “inicial”, 
+al mover la posición del switch (A=0) transita al estado seguimiento, si se 
+presiona el pulsador durante un corto tiempo, se estará en el estado grabar 
+y se obtendrá los datos de ese instante, pero si se mantiene presionado el 
+pulsador, entrará al estado grabar y tomará datos, luego estará a la espera 
+de tomar datos que sea distinta a la anterior, si se suelta el pulsador se 
+entrará nuevamente al estado seguimiento, volviendo el switch a su posición 
+media(C=1, B=1), se estará en el estado inicial, cambiando el switch a la 
+posición (B=0) entrará al estado automatizado, si se presiona por un 
+instante el pulsador, el brazo se detendrá(STOP) y si se vuelve pulsar 
+seguirá con el movimiento(PLAY), en el cual comenzará a reproducir el 
+movimiento gracias a los datos tomados con ayuda del brazo a escala.
+
+\section{Desarrollo y alcance futuro}
+
+\subfile{des_y_alc_futuro}
+
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+\end{thebibliography}
+
+% that's all folks
+\end{document}
